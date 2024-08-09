@@ -6,6 +6,7 @@ namespace BlockHorizons\Fireworks;
 
 use BlockHorizons\Fireworks\item\Fireworks;
 use BlockHorizons\Fireworks\entity\FireworksRocket;
+use pocketmine\utils\SingletonTrait;
 use pocketmine\math\Vector3;
 use pocketmine\world\World;
 use pocketmine\entity\Location;
@@ -13,7 +14,7 @@ use pocketmine\Server;
 
 class FireworkManager
 {
-    use \pocketmine\utils\SingletonTrait;
+    use SingletonTrait;
 
     public function spawnFirework(int $type, string $color, string $fade = "", int $duration = 1, float $x, float $y, float $z, World $world): void
     {
