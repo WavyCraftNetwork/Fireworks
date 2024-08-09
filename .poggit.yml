@@ -1,4 +1,4 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/MyFreds/Fireworks-PM5
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/WavyNetwork/Fireworks
 build-by-default: true
 branches:
 - "5.0"
