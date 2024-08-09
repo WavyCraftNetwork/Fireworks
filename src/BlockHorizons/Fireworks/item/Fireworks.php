@@ -7,6 +7,7 @@ namespace BlockHorizons\Fireworks\item;
 use BlockHorizons\Fireworks\entity\FireworksRocket;
 use pocketmine\block\Block;
 use pocketmine\entity\Location;
+use pocketmine\entity\Entity;
 use pocketmine\item\Item;
 use pocketmine\item\ItemUseResult;
 use pocketmine\math\Vector3;
