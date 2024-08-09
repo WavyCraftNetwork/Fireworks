@@ -40,6 +40,8 @@ class Fireworks extends Item {
 	public const COLOR_GOLD = "\x0e";
 	public const COLOR_WHITE = "\x0f";
 
+	private $owningEntity;
+
 	public function getFlightDuration(): int {
 		return $this->getExplosionsTag()->getByte("Flight", 1);
 	}
@@ -80,6 +82,7 @@ class Fireworks extends Item {
 
 	public function onInteractBlock(Player $player, Block $blockReplace, Block $blockClicked, int $face, Vector3 $clickVector, array &$returnedItems): ItemUseResult
 	{
+		$this->owningEntity = $player;
 		$entity = new FireworksRocket(Location::fromObject($blockReplace->getPosition()->add(0.5, 0, 0.5), $player->getWorld(), lcg_value() * 360, 90), $this);
 
 		$this->pop();
@@ -87,4 +90,9 @@ class Fireworks extends Item {
 		//TODO: what if the entity was marked for deletion?
 		return ItemUseResult::SUCCESS();
 	}
+
+	public function getOwningEntity(): ?Entity
+        {
+                return $this->owningEntity;
+        }
 }
