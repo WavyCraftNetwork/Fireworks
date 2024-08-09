@@ -6,6 +6,7 @@ namespace BlockHorizons\Fireworks;
 
 use BlockHorizons\Fireworks\item\Fireworks;
 use BlockHorizons\Fireworks\entity\FireworksRocket;
+use BlockHorizons\Fireworks\item\ExtraVanillaItems;
 use pocketmine\utils\SingletonTrait;
 use pocketmine\player\Player;
 use pocketmine\world\World;
