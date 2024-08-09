@@ -5,4 +5,5 @@ branches:
 projects:
   Fireworks-PM5:
     path: ""
+    lint: false
 ...
