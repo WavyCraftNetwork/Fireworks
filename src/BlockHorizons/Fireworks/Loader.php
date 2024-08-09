@@ -9,6 +9,7 @@ use BlockHorizons\Fireworks\item\Fireworks;
 use BlockHorizons\Fireworks\item\ExtraVanillaItems;
 use pocketmine\entity\EntityDataHelper;
 use pocketmine\entity\EntityFactory;
+use pocketmine\item\Item;
 use pocketmine\item\ItemIdentifier;
 use pocketmine\item\ItemTypeIds;
 use pocketmine\item\StringToItemParser;
