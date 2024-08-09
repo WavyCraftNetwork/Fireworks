@@ -70,7 +70,7 @@ $fw->addExplosion(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_GOLD, "", false
 $fw->addExplosion(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_WHITE, "", false, true);
 $player->getInventory()->addItem($fw);
 ```
-### Launching fireworks
+### Launching fireworks - LEGACY (YOU MAY USE THIS METHOD THOUGH)
 Fireworks can be launched after you created the firework item.
 This example spawns a green creeper firework at the default world's spawn
 ```php
@@ -92,4 +92,32 @@ $entity = FireworksRocket::createEntity("FireworksRocket", $level, $nbt, $fw);
 if ($entity instanceof FireworksRocket) {
     $entity->spawnToAll();
 }
+```
+### Launching fireworks
+```php
+// How to customize your firework:
+
+// FireworkManager::getInstance()->spawnFireworkAtPlayer(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), PLAYER POSITION);
+
+// FireworkManager::getInstance()->spawnFireworkAtCoord(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), X, Y, Z, WORLD);
+
+// Usage example with player position:
+// pocketmine\player\Player can be used as well
+
+$player = Server::getInstance()->getPlayerExact("PlayerName");
+
+if ($player !== null) {
+    FireworkManager::getInstance()->spawnFireworkAtPlayer(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, Fireworks::COLOR_RED, 2, $player);
+}
+
+// Usage example with specific coordinates:
+
+$x = 10;
+$y = 4;
+$z = 10;
+$world = Server::getInstance()->getWorldManager()->getWorldByName("TEST");
+
+
+FireworkManager::getInstance()->spawnFireworkAtCoord(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, "", 1, $x, $y, $z, $world);
+
 ```
