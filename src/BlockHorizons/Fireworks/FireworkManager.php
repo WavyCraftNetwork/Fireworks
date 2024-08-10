@@ -17,21 +17,21 @@ class FireworkManager
 {
     use SingletonTrait;
 
-    public function spawnFireworkAtPlayer(int $type, string $color, string $fade = "", int $duration = 1, Player $player): void
+    public function spawnFireworkAtPlayer(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, Player $player): void
     {
-        $this->spawnFirework($type, $color, $fade, $duration, $player->getPosition()->getX(), $player->getPosition()->getY(), $player->getPosition()->getZ(), $player->getWorld());
+        $this->spawnFirework($type, $color, $fade, $duration, $flicker, $trail, $player->getPosition()->getX(), $player->getPosition()->getY(), $player->getPosition()->getZ(), $player->getWorld());
     }
 
-    public function spawnFireworkAtCoord(int $type, string $color, string $fade = "", int $duration = 1, float $x, float $y, float $z, World $world): void
+    public function spawnFireworkAtCoord(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, float $x, float $y, float $z, World $world): void
     {
-        $this->spawnFirework($type, $color, $fade, $duration, $x, $y, $z, $world);
+        $this->spawnFirework($type, $color, $fade, $duration, $flicker, $trail, $x, $y, $z, $world);
     }
 
-    private function spawnFirework(int $type, string $color, string $fade = "", int $duration = 1, float $x, float $y, float $z, World $world): void
+    private function spawnFirework(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, float $x, float $y, float $z, World $world): void
     {
         $fireworkItem = ExtraVanillaItems::FIREWORKS();
         $fireworkItem->setFlightDuration($duration);
-        $fireworkItem->addExplosion($type, $color, $fade);
+        $fireworkItem->addExplosion($type, $color, $fade, $flicker, $trail);
         $position = new Position($x, $y, $z, $world);
         $fireworkRocket = new FireworksRocket($position, $fireworkItem);
         $fireworkRocket->spawnToAll();
