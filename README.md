@@ -97,9 +97,9 @@ if ($entity instanceof FireworksRocket) {
 ```php
 // How to customize your firework:
 
-// FireworkManager::getInstance()->spawnFireworkAtPlayer(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), PLAYER POSITION);
+// FireworkManager::getInstance()->spawnFireworkAtPlayer(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), FLICKER, TRAIL, PLAYER POSITION);
 
-// FireworkManager::getInstance()->spawnFireworkAtCoord(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), X, Y, Z, WORLD);
+// FireworkManager::getInstance()->spawnFireworkAtCoord(TYPE, COLOR, FADING COlOR(put "" if you don't want a fading color), DURATION(1-3), FLICKER, TRAIL, X, Y, Z, WORLD);
 
 // Usage example with player position:
 // pocketmine\player\Player can be used as well
@@ -107,7 +107,7 @@ if ($entity instanceof FireworksRocket) {
 $player = Server::getInstance()->getPlayerExact("PlayerName");
 
 if ($player !== null) {
-    FireworkManager::getInstance()->spawnFireworkAtPlayer(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, Fireworks::COLOR_RED, 2, $player);
+    FireworkManager::getInstance()->spawnFireworkAtPlayer(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, Fireworks::COLOR_RED, 2, false, true, $player);
 }
 
 // Usage example with specific coordinates:
@@ -118,6 +118,6 @@ $z = 10;
 $world = Server::getInstance()->getWorldManager()->getWorldByName("TEST");
 
 
-FireworkManager::getInstance()->spawnFireworkAtCoord(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, "", 1, $x, $y, $z, $world);
+FireworkManager::getInstance()->spawnFireworkAtCoord(Fireworks::TYPE_SMALL_SPHERE, Fireworks::COLOR_BLACK, "", 1, false, false, $x, $y, $z, $world);
 
 ```
