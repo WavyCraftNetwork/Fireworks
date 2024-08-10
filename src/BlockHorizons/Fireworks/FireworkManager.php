@@ -17,9 +17,9 @@ class FireworkManager
 {
     use SingletonTrait;
 
-    public function spawnFireworkAtPlayer(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, Player $player): void
+    public function spawnFireworkAtPlayer(Player $player, int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false): void
     {
-        $this->spawnFirework($type, $color, $fade, $duration, $flicker, $trail, $player->getPosition()->getX(), $player->getPosition()->getY(), $player->getPosition()->getZ(), $player->getWorld());
+        $this->spawnFirework($player->getPosition()->getX(), $player->getPosition()->getY(), $player->getPosition()->getZ(), $player->getWorld(), $type, $color, $fade, $duration, $flicker, $trail);
     }
 
     public function spawnFireworkAtCoord(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, float $x, float $y, float $z, World $world): void
@@ -27,7 +27,7 @@ class FireworkManager
         $this->spawnFirework($type, $color, $fade, $duration, $flicker, $trail, $x, $y, $z, $world);
     }
 
-    private function spawnFirework(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, float $x, float $y, float $z, World $world): void
+    private function spawnFirework(float $x, float $y, float $z, World $world, int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false): void
     {
         $fireworkItem = ExtraVanillaItems::FIREWORKS();
         $fireworkItem->setFlightDuration($duration);
