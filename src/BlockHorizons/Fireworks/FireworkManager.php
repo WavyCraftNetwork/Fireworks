@@ -17,7 +17,7 @@ class FireworkManager
 {
     use SingletonTrait;
 
-    public function spawnFireworkAtPlayer(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, Player $player): void
+    public function spawnFireworkAtPlayer(Player $player, int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false)
     {
         $fireworkItem = ExtraVanillaItems::FIREWORKS();
         $fireworkItem->setFlightDuration($duration);
@@ -28,7 +28,7 @@ class FireworkManager
         $fireworkRocket->spawnToAll();
     }
 
-    public function spawnFireworkAtCoord(int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false, float $x, float $y, float $z, World $world): void
+    public function spawnFireworkAtCoord(World $world, float $x, float $y, float $z, int $type, string $color, string $fade = "", int $duration = 1, bool $flicker = false, bool $trail = false)
     {
         $fireworkItem = ExtraVanillaItems::FIREWORKS();
         $fireworkItem->setFlightDuration($duration);
